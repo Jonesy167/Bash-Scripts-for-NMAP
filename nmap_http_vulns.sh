@@ -1,11 +1,14 @@
 #!/bin/sh
 
 #by Jonesy167, this bash script allows multiple HTTP vulnerability assessment NSE scripts to be run and creates a single summary file to
-#view the output and identify HTTP vulnerabilities easily
+#view the output and identify HTTP vulnerabilities easily. Live hosts are first identified by running a standard NMAP scan on the ports
+# specified at runtime, the NSE scripts will only be ran against the identified live hosts, again on the same ports as are specified on startup. 
+
 
 #NOT TO BE USED FOR ILLEGAL OR NEFARIOS PURPOSES
 
-#check if 3 arguement given, if not print instructions
+
+#check if 3 arguements given, if not print instructions
 #-iL target_list is first arguement, check if arguement given, if not print instructions
 if [ $# -ne 3 ]; then
 echo ""
@@ -20,15 +23,17 @@ echo ""
 exit 0
 fi
 
+
+# enumerate live hosts using standard NMAP scan and create 'clean file' with live hosts IP's which is used as target list for NSE scripts
 nmap -p $2 $1 -oX nmap_output_80_8080  #identify live hosts and save standard nmap xml output to file  
 grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b' nmap_output_80_8080 > target_list2  # creates file containing only live hosts
-sort -u target_list2 > target_list #removes duplicates and creates new target list which we can use
+sort -u target_list2 > target_list #removes duplicates and creates new target list which is used as target list for NSE scripts
 
 
 
 echo "testing for http-iis-webdav-vuln"
 echo ""
-nmap -p $2 --script=http-iis-webdav-vuln -iL target_list -oX $3_http-iis-webdav-vuln|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-iis-webdav-vuln -iL target_list -oX $3_http-iis-webdav-vuln|grep 'VULNER\|vulnerable' #search XML output for strings 'VULNER' and 'vulner' if present display line
 echo ""
 echo ""
 echo ""
@@ -218,8 +223,7 @@ echo ""
 echo ""
 echo ""
 
-#cats output files and pulls out any positive results by searching for strings 'vulner' and 'VULNER' then searching for IP address using grep with regex from #result
-
+#cats output files and pulls out any positive results by searching for strings 'vulner' and 'VULNER', then searches and displays IP address's using grep with regex
 
 echo "bellow devices vulnerable to http-iis-webdav-vuln"
 cat $3_http-iis-webdav-vuln|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"

@@ -3,6 +3,8 @@
 #by Jonesy167, this bash script allows multiple NMAP SMB vulnerability assessment NSE scripts to be run and creates a single summary file to
 #view the output and identify SMB/SAMBA vulnerabilities easily
 
+#NOT TO BE USED FOR ILLEGAL OR NEFARIOS PURPOSES
+
 #check if 2 arguement given, if not print instructions
 #$1 is first arguement, check if arguement given, if not print instructions
 if [ $# -ne 3 ]; then

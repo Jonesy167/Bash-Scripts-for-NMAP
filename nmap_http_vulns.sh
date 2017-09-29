@@ -437,7 +437,7 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2017-5638"
 cat $3_http-vuln-cve2017-5638|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-echo "devices vulnerable to http-vuln-cve2017-5638" > $3_vulns_summary 
+echo "devices vulnerable to http-vuln-cve2017-5638" >> $3_vulns_summary 
 cat $3_http-vuln-cve2017-5638|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 echo ""
 echo ""

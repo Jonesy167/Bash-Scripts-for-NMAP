@@ -10,4 +10,5 @@ individual NSE script name with output file name specified at runtime appended
 Useage example bellow 
 
 nmap_smb_vulns.sh./ <iprange e.g 192.168.1/24> <port - multple ports can be entered either as 13,445 or 100-200> <outputfile name>
-nmap_http_vulns.sh uses the same synthax
+
+(nmap_http_vulns.sh uses exactly the same synthax)

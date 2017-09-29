@@ -497,7 +497,7 @@ echo    >>  $3_vulns_summary
 echo ""
 echo ""
 
-echo SUMMARY OF VULNERABILITIES WRITTEN TO $3_vulns_summary  !!!
+echo ################   SUMMARY OF VULNERABILITIES WRITTEN TO $3_vulns_summary  !!! ###################################
 
 echo ""
 echo ""

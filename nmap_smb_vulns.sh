@@ -4,14 +4,15 @@
 #view the output and identify SMB/SAMBA vulnerabilities easily
 
 #check if 2 arguement given, if not print instructions
+#$1 is first arguement, check if arguement given, if not print instructions
 if [ $# -ne 3 ]; then
 echo ""
 echo ""
-echo "[*] script to run all nse smb vuln scripts back to back, will produce single output files for each named <filename>_ms08-67 etc in addion"
-echo "to single succinct overall summary output file"
-echo ""
-echo "[*] Useage <or iprange or iprange i.e 192.168.1-254> <ports entered either delimated by a , i.e 139,445 or if a range 100-200>  <output file name>"
+echo "[*] script to run all nse smb vuln scripts back to back, will produce single output file for each named <filename>_ms08-67 etc"
+echo "[*] Useage <iprange> <port (multple ports entered either as 13,445 or 100-200)> <outputfile name>"
+exit 0
 fi
+
 
 echo "testing for ms08-067"
 echo ""

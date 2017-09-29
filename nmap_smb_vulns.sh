@@ -80,8 +80,9 @@ nmap -p $2  --script=smb-double-pulsar-backdoor.nse $1 -oX $3_double-pulsar-back
 clear
 
 echo ""
+echo "#####################################################################################################################"
 echo ""
-echo "BELLOW IS SUMMARY OF VULNERABLE DEVICES (also written to <filename>vulns_summary file)"
+echo "##############BELLOW IS SUMMARY OF VULNERABLE DEVICES (also written to <filename>vulns_summary file)##################"
 echo ""
 echo ""
 

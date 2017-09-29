@@ -3,6 +3,8 @@ Bash scripts which run multiple NMAP NSE scripts i.e a single bash script to run
 
 The scripts first identify vulnerable systems and then creates a single file containing a clear and concise list of vulnerable systems (vulns_summary file). The naming convention for the vulns_summary file is output file name specified at run time with "vulns_summary" appended 
 
+e.g 
+
 Verbose output is also saved from each NSE script should you wish to analyse it, this takes the bellow naming convention: 
 individual NSE script name with output file name specified at runtime appended
 

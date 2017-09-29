@@ -5,13 +5,18 @@
 
 #NOT TO BE USED FOR ILLEGAL OR NEFARIOS PURPOSES
 
-#check if 2 arguement given, if not print instructions
+#check if 3 arguement given, if not print instructions
 #$1 is first arguement, check if arguement given, if not print instructions
 if [ $# -ne 3 ]; then
 echo ""
 echo ""
-echo "[*] script to run all nse smb vuln scripts back to back, will produce single output file for each named <filename>_ms08-67 etc"
+echo "[*] script to run all nse smb vuln scripts back to back, will produce single soutput file for each named <filename>_ms08-67 etc"
+echo "[*] will also produce an easy to intepret summary file containing a clear list of vulnerabilities named <outpufile name_vulns_summary>
+echo ""
+echo ""
 echo "[*] Useage <iprange> <port (multple ports entered either as 13,445 or 100-200)> <outputfile name>"
+echo ""
+echo ""
 exit 0
 fi
 

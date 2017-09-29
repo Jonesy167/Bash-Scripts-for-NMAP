@@ -3,4 +3,4 @@ Bash scripts which run multiple NMAP NSE scripts and summarize their output with
 
 Useage example bellow 
 
-./<iprange> <port (multple ports entered either as 13,445 or 100-200)> <outputfile name>
+nmap_smb_vulns.sh./ <iprange e.g 192.168.1/24> <port - multple ports can be entered either as 13,445 or 100-200> <outputfile name>

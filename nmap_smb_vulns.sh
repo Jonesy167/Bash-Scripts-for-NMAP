@@ -38,37 +38,42 @@ echo ""
 nmap -p $2  --script=smb-vuln-ms17-010.nse $1 -oX $3_ms17-10|grep 'VULNER\|vulner' 
 echo ""
 echo ""
+echo ""
 echo "testing for ms10-061"
 nmap -p $2  --script=smb-vuln-ms10-061.nse $1 -oX $3_ms10-61|grep 'VULNER\|vulner' 
+echo ""
 echo ""
 echo ""
 echo "testing for ms10-054"
 nmap -p $2  --script=smb-vuln-ms10-054.nse $1 -oX $3_ms10-54|grep 'VULNER\|vulner' 
 echo ""
 echo ""
+echo ""
 echo "testing for ms07-029"
 nmap -p $2  --script=smb-vuln-ms07-029.nse $1 -oX $3_ms07-29|grep 'VULNER\|vulner' 
+echo ""
 echo ""
 echo ""
 echo "testing for ms06-025"
 nmap -p $2  --script=smb-vuln-ms06-025.nse $1 -oX $3_ms06-025|grep 'VULNER\|vulner' 
 echo ""
 echo ""
+echo ""
 echo "testing for smb-vuln-cve-2017-7494"
 nmap -p $2  --script=smb-vuln-cve-2017-7494.nse $1 -oX $3_cve_2017-7494|grep 'VULNER\|vulner'
 echo ""
 echo ""
-
+echo ""
 echo "testing for smb-vuln-conficker"
 nmap -p $2  --script=smb-vuln-conficker.nse $1 -oX $3_conflicker|grep 'VULNER\|vulner'
 echo ""
 echo ""
-
+echo ""
 echo "testing for smb-vuln-cve2009-3103"
 nmap -p $2  --script=smb-vuln-cve2009-3103.nse $1 -oX $3_cve2009-3103|grep 'VULNER\|vulner'
 echo ""
 echo ""
-
+echo ""
 echo "testing for smb-double-pulsar-backdoor"
 nmap -p $2  --script=smb-double-pulsar-backdoor.nse $1 -oX $3_double-pulsar-backdoor|grep 'VULNER\|vulner'
 
@@ -85,25 +90,24 @@ echo "bellow devices vulnerable to ms08-067"
 cat $3_ms08-067|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "devices vulnerable to ms08-067" > $3_vulns_summary 
 cat $3_ms08-067|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
-
+echo ""
 echo ""
 echo ""
 
 #add new line to vulns summary so it isn't messy
-echo  -e >>  $3_vulns_summary
-echo  -e >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
 
 
 echo "bellow devices vulnerable to samba-vuln-cve-2012-1182"
 echo "devices vulnerable to samba-vuln-cve-2012-1182" >> $3_vulns_summary
 cat $3_samba-vuln-cve-2012-1182|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 cat $3_samba-vuln-cve-2012-1182|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
-
 echo ""
 echo ""
 
-echo  -e >>  $3_vulns_summary
-echo  -e >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
 
 
 echo "bellow devices vulnerable to ms17-010 (eternalblue)"
@@ -114,8 +118,8 @@ cat $3_ms17-10  |grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1
 echo ""
 echo "" 
 
-echo  -e >>  $3_vulns_summary
-echo  -e >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to ms10-061"
 echo "devices vulnerable to ms10-061" >> $3_vulns_summary
@@ -125,8 +129,8 @@ cat $3_ms10-61  |grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1
 echo ""
 echo "" 
 
-echo  -e >>  $3_vulns_summary
-echo  -e >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to ms10-054"
 echo "devices vulnerable to ms10-054" >> $3_vulns_summary
@@ -136,8 +140,8 @@ cat $3_ms10-54 |grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,
 echo ""
 echo "" 
 
-echo  -e >>  $3_vulns_summary
-echo  -e >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to ms07-29"
 echo "devices vulnerable to ms07-29" >> $3_vulns_summary
@@ -147,8 +151,8 @@ cat $3_ms07-29  |grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1
 echo ""
 echo "" 
 
-echo  -e >>  $3_vulns_summary
-echo  -e >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to ms06-025"
 echo "devices vulnerable to ms06-025" >> $3_vulns_summary
@@ -158,8 +162,8 @@ cat $3_ms06-025 |grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1
 echo ""
 echo "" 
 
-echo  -e >>  $3_vulns_summary
-echo  -e >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to cve_2017-7494"
 echo "devices vulnerable to cve_2017-7494" >> $3_vulns_summary
@@ -169,8 +173,8 @@ cat $3_cve_2017-7494|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-
 echo ""
 echo "" 
 
-echo  -e >>  $3_vulns_summary
-echo  -e >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to conflicker"
 echo "devices vulnerable to conflicker" >> $3_vulns_summary
@@ -180,15 +184,15 @@ cat $3_conflicker|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{
 echo ""
 echo "" 
 
-echo  -e >>  $3_vulns_summary
-echo  -e >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to cve2009-3103"
 echo "devices vulnerable to cve2009-3103" >> $3_vulns_summary
 cat $3_cve2009-3103|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 cat $3_cve2009-3103|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
-echo  -e >>  $3_vulns_summary
-echo  -e >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
 
 echo ""
 echo "" 
@@ -198,13 +202,16 @@ echo "bellow devices have double-pulsar-backdoor" >> $3_vulns_summary
 cat $3_double-pulsar-backdoor|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 cat $3_double-pulsar-backdoor|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 
-echo  -e >>  $3_vulns_summary
-echo  -e >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
+echo    >>  $3_vulns_summary
 
 echo ""
 echo ""
 
-echo SUMMARY OF VULNERABILITIES WRITTEN TO $3vulns_summary  !!!
+echo SUMMARY OF VULNERABILITIES WRITTEN TO $3_vulns_summary  !!!
 
+echo ""
+echo ""
+echo "happy pentesting :) "
 echo ""
 echo ""

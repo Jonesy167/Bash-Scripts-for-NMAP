@@ -6,11 +6,11 @@
 #NOT TO BE USED FOR ILLEGAL OR NEFARIOS PURPOSES
 
 #check if 3 arguement given, if not print instructions
-#$1 is first arguement, check if arguement given, if not print instructions
+#-iL target_list is first arguement, check if arguement given, if not print instructions
 if [ $# -ne 3 ]; then
 echo ""
 echo ""
-echo "[*] script to run all nse smb vuln scripts back to back, will produce single soutput file for each named <filename>_ms08-67 etc"
+echo "[*] script to first enumerate live hosts and then run all HTTP vuln scripts back to back against then, will produce single soutput file for each named <filename>_ms08-67 etc"
 echo "[*] will also produce an easy to intepret summary file containing a clear list of vulnerabilities named <outpufile name_vulns_summary>"
 echo ""
 echo ""
@@ -20,160 +20,192 @@ echo ""
 exit 0
 fi
 
+nmap -p $2 $1 -oX nmap_output_80_8080  #identify live hosts and save standard nmap xml output to file  
+grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b' nmap_output_80_8080 > target_list2  # creates file containing only live hosts
+sort -u target_list2 > target_list #removes duplicates and creates new target list which we can use
+
+
+
 echo "testing for http-iis-webdav-vuln"
 echo ""
-nmap -p $2 --script=http-iis-webdav-vuln $1 -oX $3_http-iis-webdav-vuln|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-iis-webdav-vuln -iL target_list -oX $3_http-iis-webdav-vuln|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vmware-path-vuln"
 echo ""
-nmap -p $2 --script=http-vmware-path-vuln $1 -oX $3_http-vmware-path-vuln|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vmware-path-vuln -iL target_list -oX $3_http-vmware-path-vuln|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2006-3392"
 echo ""
-nmap -p $2 --script=http-vuln-cve2006-3392 $1 -oX $3_http-vuln-cve2006-3392|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2006-3392 -iL target_list -oX $3_http-vuln-cve2006-3392|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2009-3960"
 echo ""
-nmap -p $2 --script=http-vuln-cve2009-3960 $1 -oX $3_http-vuln-cve2009-3960|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2009-3960 -iL target_list -oX $3_http-vuln-cve2009-3960|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2010-0738"
 echo ""
-nmap -p $2 --script=http-vuln-cve2010-0738 $1 -oX $3_http-vuln-cve2010-0738|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2010-0738 -iL target_list -oX $3_http-vuln-cve2010-0738|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2010-2861"
 echo ""
-nmap -p $2 --script=http-vuln-cve2010-2861 $1 -oX $3_http-vuln-cve2010-2861|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2010-2861 -iL target_list -oX $3_http-vuln-cve2010-2861|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2011-3192"
 echo ""
-nmap -p $2 --script=http-vuln-cve2011-3192 $1 -oX $3_http-vuln-cve2011-3192|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2011-3192 -iL target_list -oX $3_http-vuln-cve2011-3192|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2011-3368"
 echo ""
-nmap -p $2 --script=http-vuln-cve2011-3368 $1 -oX $3_http-vuln-cve2011-3368|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2011-3368 -iL target_list -oX $3_http-vuln-cve2011-3368|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2012-1823"
 echo ""
-nmap -p $2 --script=http-vuln-cve2012-1823 $1 -oX $3_http-vuln-cve2012-1823|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2012-1823 -iL target_list -oX $3_http-vuln-cve2012-1823|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2013-0156"
 echo ""
-nmap -p $2 --script=http-vuln-cve2013-0156 $1 -oX $3_http-vuln-cve2013-0156|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2013-0156 -iL target_list -oX $3_http-vuln-cve2013-0156|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2013-6786"
 echo ""
-nmap -p $2 --script=http-vuln-cve2013-6786 $1 -oX $3_http-vuln-cve2013-6786|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2013-6786 -iL target_list -oX $3_http-vuln-cve2013-6786|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2013-7091"
 echo ""
-nmap -p $2 --script=http-vuln-cve2013-7091 $1 -oX $3_http-vuln-cve2013-7091|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2013-7091 -iL target_list -oX $3_http-vuln-cve2013-7091|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2014-2126"
 echo ""
-nmap -p $2 --script=http-vuln-cve2014-2126 $1 -oX $3_http-vuln-cve2014-2126|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2014-2126 -iL target_list -oX $3_http-vuln-cve2014-2126|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2014-2127"
 echo ""
-nmap -p $2 --script=http-vuln-cve2014-2127 $1 -oX $3_http-vuln-cve2014-2127|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2014-2127 -iL target_list -oX $3_http-vuln-cve2014-2127|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2014-2128"
 echo ""
-nmap -p $2 --script=http-vuln-cve2014-2128 $1 -oX $3_http-vuln-cve2014-2128|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2014-2128 -iL target_list -oX $3_http-vuln-cve2014-2128|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2014-2129"
 echo ""
-nmap -p $2 --script=http-vuln-cve2014-2129 $1 -oX $3_http-vuln-cve2014-2129|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2014-2129 -iL target_list -oX $3_http-vuln-cve2014-2129|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2014-3704"
 echo ""
-nmap -p $2 --script=http-vuln-cve2014-3704 $1 -oX $3_http-vuln-cve2014-3704|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2014-3704 -iL target_list -oX $3_http-vuln-cve2014-3704|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2014-8877"
 echo ""
-nmap -p $2 --script=http-vuln-cve2014-8877 $1 -oX $3_http-vuln-cve2014-8877|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2014-8877 -iL target_list -oX $3_http-vuln-cve2014-8877|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2015-1427"
 echo ""
-nmap -p $2 --script=http-vuln-cve2015-1427 $1 -oX $3_http-vuln-cve2015-1427|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2015-1427 -iL target_list -oX $3_http-vuln-cve2015-1427|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2015-1635"
 echo ""
-nmap -p $2 --script=http-vuln-cve2015-1635 $1 -oX $3_http-vuln-cve2015-1635|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2015-1635 -iL target_list -oX $3_http-vuln-cve2015-1635|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2017-1001000"
 echo ""
-nmap -p $2 --script=http-vuln-cve2017-1001000 $1 -oX $3_http-vuln-cve2017-1001000|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2017-1001000 -iL target_list -oX $3_http-vuln-cve2017-1001000|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2017-5638"
 echo ""
-nmap -p $2 --script=http-vuln-cve2017-5638 $1 -oX $3_http-vuln-cve2017-5638|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2017-5638 -iL target_list -oX $3_http-vuln-cve2017-5638|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-cve2017-5689"
 echo ""
-nmap -p $2 --script=http-vuln-cve2017-5689 $1 -oX $3_http-vuln-cve2017-5689|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-cve2017-5689 -iL target_list -oX $3_http-vuln-cve2017-5689|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-misfortune-cookie"
 echo ""
-nmap -p $2 --script=http-vuln-misfortune-cookie $1 -oX $3_http-vuln-misfortune-cookie|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-misfortune-cookie -iL target_list -oX $3_http-vuln-misfortune-cookie|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 echo "testing for http-vuln-wnr1000-creds"
 echo ""
-nmap -p $2 --script=http-vuln-wnr1000-creds $1 -oX $3_http-vuln-wnr1000-creds|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-vuln-wnr1000-creds -iL target_list -oX $3_http-vuln-wnr1000-creds|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
 
 echo "testing for http-huawei-hg5xx-vuln"
 echo ""
-nmap -p $2 --script=http-huawei-hg5xx-vuln $1 -oX $3_http-huawei-hg5xx-vuln|grep 'VULNER\|vulnerable' 
+nmap -p $2 --script=http-huawei-hg5xx-vuln -iL target_list -oX $3_http-huawei-hg5xx-vuln|grep 'VULNER\|vulnerable' 
+echo ""
 echo ""
 echo ""
 
@@ -182,6 +214,7 @@ clear
 echo ""
 echo ""
 echo "###########  BELLOW IS SUMMARY OF VULNERABLE DEVICES (also written to <filename>vulns_summary file) #####################"
+echo ""
 echo ""
 echo ""
 
@@ -207,6 +240,7 @@ cat $3_http-vmware-path-vuln|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\
 cat $3_http-vmware-path-vuln|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -219,6 +253,7 @@ cat $3_http-vuln-cve2006-3392  |grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,
 
 echo ""
 echo "" 
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -242,6 +277,7 @@ cat $3_http-vuln-cve2010-0738|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}
 cat $3_http-vuln-cve2010-0738|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -254,6 +290,7 @@ cat $3_http-vuln-cve2010-2861|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}
 
 echo ""
 echo "" 
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -278,6 +315,7 @@ cat $3_http-vuln-cve2011-3368|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}
 cat $3_http-vuln-cve2011-3368|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -290,6 +328,7 @@ cat $3_http-vuln-cve2012-1823 |grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3
 
 echo ""
 echo "" 
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -313,6 +352,7 @@ cat $3_http-vuln-cve2013-6786|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}
 cat $3_http-vuln-cve2013-6786|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -325,6 +365,7 @@ cat $3_http-vuln-cve2013-7091 |grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3
 
 echo ""
 echo "" 
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -348,6 +389,7 @@ cat $3_http-vuln-cve2014-2127|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}
 cat $3_http-vuln-cve2014-2127|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -360,6 +402,7 @@ cat $3_http-vuln-cve2014-2128 |grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3
 
 echo ""
 echo "" 
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -384,6 +427,7 @@ cat $3_http-vuln-cve2014-3704|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}
 cat $3_http-vuln-cve2014-3704|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -396,6 +440,7 @@ cat $3_http-vuln-cve2014-8877 |grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3
 
 echo ""
 echo "" 
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -404,6 +449,7 @@ echo "bellow devices vulnerable to http-vuln-cve2015-1427"
 cat $3_http-vuln-cve2015-1427|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "devices vulnerable to http-vuln-cve2015-1427" >> $3_vulns_summary 
 cat $3_http-vuln-cve2015-1427|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
+
 echo ""
 echo ""
 echo ""
@@ -417,6 +463,8 @@ echo "bellow devices vulnerable to http-vuln-cve2015-1635"
 echo "devices vulnerable to http-vuln-cve2015-1635" >> $3_vulns_summary
 cat $3_http-vuln-cve2015-1635|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 cat $3_http-vuln-cve2015-1635|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+
+echo ""
 echo ""
 echo ""
 
@@ -431,6 +479,7 @@ cat $3_http-vuln-cve2017-1001000 |grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{
 
 echo ""
 echo "" 
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -439,6 +488,7 @@ echo "bellow devices vulnerable to http-vuln-cve2017-5638"
 cat $3_http-vuln-cve2017-5638|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "devices vulnerable to http-vuln-cve2017-5638" >> $3_vulns_summary 
 cat $3_http-vuln-cve2017-5638|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
+
 echo ""
 echo ""
 echo ""
@@ -452,6 +502,8 @@ echo "bellow devices vulnerable to http-vuln-cve2017-5689"
 echo "devices vulnerable to http-vuln-cve2017-5689" >> $3_vulns_summary
 cat $3_http-vuln-cve2017-5689|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 cat $3_http-vuln-cve2017-5689|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+
+echo ""
 echo ""
 echo ""
 
@@ -466,6 +518,7 @@ cat $3_http-vuln-misfortune-cookie |grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9
 
 echo ""
 echo "" 
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -474,6 +527,7 @@ echo "bellow devices vulnerable to http-vuln-wnr1000-creds"
 cat $3_http-vuln-wnr1000-creds|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "devices vulnerable to http-vuln-wnr1000-creds.nse" >> $3_vulns_summary 
 cat $3_http-vuln-wnr1000-creds|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
+
 echo ""
 echo ""
 echo ""
@@ -487,9 +541,10 @@ echo "bellow devices vulnerable to http-huawei-hg5xx-vuln"
 echo "devices vulnerable to http-huawei-hg5xx-vuln" >> $3_vulns_summary
 cat $3_http-huawei-hg5xx-vuln|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 cat $3_http-huawei-hg5xx-vuln|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
-echo ""
-echo ""
 
+echo ""
+echo ""
+echo ""
 
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
@@ -497,9 +552,16 @@ echo    >>  $3_vulns_summary
 echo ""
 echo ""
 
-echo ################   SUMMARY OF VULNERABILITIES WRITTEN TO $3_vulns_summary  !!! ###################################
+echo "###########  ABOVE IS SUMMARY OF VULNERABLE DEVICES (also written to <filename>vulns_summary file) #####################"
+echo ""
+echo ""
+echo ""
 
-echo ""
-echo ""
 echo "happy pentesting :) "
 echo ""
+echo ""
+
+#clean up
+rm nmap_output_80_8080 -f
+rm target_list -f
+rm target_list2 -f 

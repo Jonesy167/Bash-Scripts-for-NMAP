@@ -1,0 +1,2 @@
+# Bash-Scripts-for-NMAP
+Bash scripts which run multiple NMAP NSE scripts and summarize their output within a single file e.g. a single bash script to run all SMB/SAMBA NMAP NSE vulnerability scripts which then pulls out t…

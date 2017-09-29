@@ -4,7 +4,7 @@
 #view the output and identify SMB/SAMBA vulnerabilities easily
 
 #check if 2 arguement given, if not print instructions
-if [ $# -ne 2 ]; then
+if [ $# -ne 3 ]; then
 echo ""
 echo ""
 echo "[*] script to run all nse smb vuln scripts back to back, will produce single output files for each named <filename>_ms08-67 etc in addion"

@@ -7,7 +7,8 @@
 if [ $# -ne 2 ]; then
 echo ""
 echo ""
-echo "[*] script to run all nse smb vuln scripts back to back, will produce single output file for each named <filename>_ms08-67 etc"
+echo "[*] script to run all nse smb vuln scripts back to back, will produce single output files for each named <filename>_ms08-67 etc in addion"
+echo "to single succinct overall summary output file"
 echo ""
 echo "[*] Useage <iprange> <outputfile name>"
 exit 0

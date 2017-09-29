@@ -11,7 +11,7 @@ if [ $# -ne 3 ]; then
 echo ""
 echo ""
 echo "[*] script to run all nse smb vuln scripts back to back, will produce single soutput file for each named <filename>_ms08-67 etc"
-echo "[*] will also produce an easy to intepret summary file containing a clear list of vulnerabilities named <outpufile name_vulns_summary>
+echo "[*] will also produce an easy to intepret summary file containing a clear list of vulnerabilities named <outpufile name_vulns_summary>"
 echo ""
 echo ""
 echo "[*] Useage <iprange> <port (multple ports entered either as 13,445 or 100-200)> <outputfile name>"

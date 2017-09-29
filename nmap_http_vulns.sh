@@ -225,7 +225,7 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2009-3960"
 cat $3_http-vuln-cve2009-3960|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-echo "devices vulnerable to http-vuln-cve2009-3960" > $3_vulns_summary 
+echo "devices vulnerable to http-vuln-cve2009-3960" >> $3_vulns_summary 
 cat $3_http-vuln-cve2009-3960|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 echo ""
 echo ""
@@ -261,7 +261,7 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2011-3192"
 cat $3_http-vuln-cve2011-3192|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-echo "devices vulnerable to http-vuln-cve2011-3192" > $3_vulns_summary 
+echo "devices vulnerable to http-vuln-cve2011-3192" >> $3_vulns_summary 
 cat $3_http-vuln-cve2011-3192|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 echo ""
 echo ""
@@ -296,7 +296,7 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2013-0156"
 cat $3_http-vuln-cve2013-0156|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-echo "devices vulnerable to http-vuln-cve2013-0156" > $3_vulns_summary 
+echo "devices vulnerable to http-vuln-cve2013-0156" >> $3_vulns_summary 
 cat $3_http-vuln-cve2013-0156|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 echo ""
 echo ""
@@ -331,7 +331,7 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2014-2126"
 cat $3_http-vuln-cve2014-2126|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-echo "devices vulnerable to http-vuln-cve2014-2126" > $3_vulns_summary 
+echo "devices vulnerable to http-vuln-cve2014-2126" >> $3_vulns_summary 
 cat $3_http-vuln-cve2014-2126|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 echo ""
 echo ""
@@ -367,7 +367,7 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2014-2129"
 cat $3_http-vuln-cve2014-2129|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-echo "devices vulnerable to http-vuln-cve2014-2129" > $3_vulns_summary 
+echo "devices vulnerable to http-vuln-cve2014-2129" >> $3_vulns_summary 
 cat $3_http-vuln-cve2014-2129|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 echo ""
 echo ""
@@ -402,7 +402,7 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2015-1427"
 cat $3_http-vuln-cve2015-1427|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-echo "devices vulnerable to http-vuln-cve2015-1427" > $3_vulns_summary 
+echo "devices vulnerable to http-vuln-cve2015-1427" >> $3_vulns_summary 
 cat $3_http-vuln-cve2015-1427|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 echo ""
 echo ""

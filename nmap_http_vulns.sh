@@ -246,9 +246,9 @@ echo ""
 #cats output files and pulls out any positive results by searching for strings 'vulner' and 'VULNER', then searches and displays IP address's using grep with regex
 
 #echo "bellow devices vulnerable to http-iis-webdav-vuln"
-#cat $3_http-iis-webdav-vuln|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+#cat $3_http-iis-webdav-vuln|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 #echo "devices vulnerable to http-iis-webdav-vuln" > $3_vulns_summary 
-#cat $3_http-iis-webdav-vuln|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
+#cat $3_http-iis-webdav-vuln|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 #echo ""
 #echo ""
 #echo ""    
@@ -260,8 +260,8 @@ echo ""
 
 echo "bellow devices vulnerable to SHELLSHOCK"
 echo "devices vulnerable to http-shellshock" >> $3_vulns_summary
-cat $3_http-shellshock|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-shellshock|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-shellshock|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-shellshock|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
 echo ""
@@ -271,8 +271,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vmware-path-vuln"
 echo "devices vulnerable to http-vmware-path-vuln" >> $3_vulns_summary
-cat $3_http-vmware-path-vuln|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vmware-path-vuln|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vmware-path-vuln|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vmware-path-vuln|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
 echo ""
@@ -283,8 +283,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2006-3392"
 echo "devices vulnerable to http-vuln-cve2006-3392" >> $3_vulns_summary
-cat $3_http-vuln-cve2006-3392  |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2006-3392  |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2006-3392  |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2006-3392  |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 
 echo ""
 echo "" 
@@ -294,9 +294,9 @@ echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2009-3960"
-cat $3_http-vuln-cve2009-3960|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2009-3960|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "devices vulnerable to http-vuln-cve2009-3960" >> $3_vulns_summary 
-cat $3_http-vuln-cve2009-3960|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
+cat $3_http-vuln-cve2009-3960|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 echo ""
 echo ""
 echo ""
@@ -308,8 +308,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2010-0738"
 echo "devices vulnerable to http-vuln-cve2010-0738" >> $3_vulns_summary
-cat $3_http-vuln-cve2010-0738|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2010-0738|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2010-0738|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2010-0738|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
 echo ""
@@ -323,8 +323,8 @@ echo "[*] this script will attempt to retrieve the Coldfusion MD5 hash for admin
 echo "[*] default Coldfussion admin interface is http://<ip>/CFIDE/administrator/index.cfm"
 echo "devices vulnerable to http-vuln-cve2010-2861" >> $3_vulns_summary
 echo "default Coldfussion admin interface is http://<ip>/CFIDE/administrator/index.cfm" >> $3_vulns_summary
-cat $3_http-vuln-cve2010-2861|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2010-2861|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2010-2861|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2010-2861|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 grep -o 'Hash.*#' $3_http-vuln-cve2010-2861 |cut -d '#' -f 1 |sort -u | cut -d '&' -f 1 >> $3_vulns_summary   #pulls out any hashes and pastes them into summary file
 grep -o 'Hash.*#' $3_http-vuln-cve2010-2861 |cut -d '#' -f 1 |sort -u | cut -d '&' -f 1
 echo "use md5cracker for cracking hash @ https://hashkiller.co.uk/md5-decrypter.aspx" >>  $3_vulns_summary
@@ -340,9 +340,9 @@ echo    >>  $3_vulns_summary
 
 
 echo "bellow devices vulnerable to http-vuln-cve2011-3192"
-cat $3_http-vuln-cve2011-3192|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2011-3192|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "devices vulnerable to http-vuln-cve2011-3192" >> $3_vulns_summary 
-cat $3_http-vuln-cve2011-3192|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
+cat $3_http-vuln-cve2011-3192|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 echo ""
 echo ""
 echo ""
@@ -354,8 +354,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2011-3368"
 echo "devices vulnerable to http-vuln-cve2011-3368" >> $3_vulns_summary
-cat $3_http-vuln-cve2011-3368|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2011-3368|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2011-3368|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2011-3368|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
 echo ""
@@ -366,8 +366,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2012-1823"
 echo "devices vulnerable to http-vuln-cve2012-1823" >> $3_vulns_summary
-cat $3_http-vuln-cve2012-1823 |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2012-1823 |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2012-1823 |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2012-1823 |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 
 echo ""
 echo "" 
@@ -377,9 +377,9 @@ echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2013-0156"
-cat $3_http-vuln-cve2013-0156|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2013-0156|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "devices vulnerable to http-vuln-cve2013-0156" >> $3_vulns_summary 
-cat $3_http-vuln-cve2013-0156|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
+cat $3_http-vuln-cve2013-0156|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 echo ""
 echo ""
 echo ""
@@ -391,8 +391,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2013-6786"
 echo "devices vulnerable to http-vuln-cve2013-6786" >> $3_vulns_summary
-cat $3_http-vuln-cve2013-6786|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2013-6786|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2013-6786|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2013-6786|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
 echo ""
@@ -403,8 +403,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2013-7091"
 echo "devices vulnerable to http-vuln-cve2013-7091" >> $3_vulns_summary
-cat $3_http-vuln-cve2013-7091 |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2013-7091 |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2013-7091 |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2013-7091 |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 
 echo ""
 echo "" 
@@ -414,9 +414,9 @@ echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2014-2126"
-cat $3_http-vuln-cve2014-2126|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2014-2126|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "devices vulnerable to http-vuln-cve2014-2126" >> $3_vulns_summary 
-cat $3_http-vuln-cve2014-2126|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
+cat $3_http-vuln-cve2014-2126|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 echo ""
 echo ""
 echo ""
@@ -428,8 +428,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2014-2127"
 echo "devices vulnerable to http-vuln-cve2014-2127" >> $3_vulns_summary
-cat $3_http-vuln-cve2014-2127|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2014-2127|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2014-2127|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2014-2127|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
 echo ""
@@ -440,8 +440,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2014-2128"
 echo "devices vulnerable to http-vuln-cve2014-2128" >> $3_vulns_summary
-cat $3_http-vuln-cve2014-2128 |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2014-2128 |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2014-2128 |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2014-2128 |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 
 echo ""
 echo "" 
@@ -452,9 +452,9 @@ echo    >>  $3_vulns_summary
 
 
 echo "bellow devices vulnerable to http-vuln-cve2014-2129"
-cat $3_http-vuln-cve2014-2129|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2014-2129|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "devices vulnerable to http-vuln-cve2014-2129" >> $3_vulns_summary 
-cat $3_http-vuln-cve2014-2129|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
+cat $3_http-vuln-cve2014-2129|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 echo ""
 echo ""
 echo ""
@@ -466,8 +466,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2014-3704"
 echo "devices vulnerable to http-vuln-cve2014-3704" >> $3_vulns_summary
-cat $3_http-vuln-cve2014-3704|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2014-3704|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2014-3704|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2014-3704|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 echo ""
 echo ""
 echo ""
@@ -478,8 +478,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2014-8877"
 echo "devices vulnerable to http-vuln-cve2014-8877" >> $3_vulns_summary
-cat $3_http-vuln-cve2014-8877 |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2014-8877 |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2014-8877 |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2014-8877 |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 
 echo ""
 echo "" 
@@ -489,9 +489,9 @@ echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2015-1427"
-cat $3_http-vuln-cve2015-1427|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2015-1427|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "devices vulnerable to http-vuln-cve2015-1427" >> $3_vulns_summary 
-cat $3_http-vuln-cve2015-1427|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
+cat $3_http-vuln-cve2015-1427|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 
 echo ""
 echo ""
@@ -504,8 +504,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2015-1635"
 echo "devices vulnerable to http-vuln-cve2015-1635" >> $3_vulns_summary
-cat $3_http-vuln-cve2015-1635|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2015-1635|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2015-1635|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2015-1635|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 
 echo ""
 echo ""
@@ -517,8 +517,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2017-1001000"
 echo "devices vulnerable to http-vuln-cve2017-1001000" >> $3_vulns_summary
-cat $3_http-vuln-cve2017-1001000 |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2017-1001000 |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2017-1001000 |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2017-1001000 |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 
 echo ""
 echo "" 
@@ -528,9 +528,9 @@ echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2017-5638"
-cat $3_http-vuln-cve2017-5638|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2017-5638|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "devices vulnerable to http-vuln-cve2017-5638" >> $3_vulns_summary 
-cat $3_http-vuln-cve2017-5638|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
+cat $3_http-vuln-cve2017-5638|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 
 echo ""
 echo ""
@@ -543,8 +543,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-cve2017-5689"
 echo "devices vulnerable to http-vuln-cve2017-5689" >> $3_vulns_summary
-cat $3_http-vuln-cve2017-5689|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-cve2017-5689|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-cve2017-5689|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-cve2017-5689|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 
 echo ""
 echo ""
@@ -556,8 +556,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-misfortune-cookie"
 echo "devices vulnerable to http-vuln-misfortune-cookie" >> $3_vulns_summary
-cat $3_http-vuln-misfortune-cookie |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-vuln-misfortune-cookie |grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-vuln-misfortune-cookie |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-misfortune-cookie |grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 
 echo ""
 echo "" 
@@ -567,9 +567,9 @@ echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-vuln-wnr1000-creds"
-cat $3_http-vuln-wnr1000-creds|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-vuln-wnr1000-creds|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "devices vulnerable to http-vuln-wnr1000-creds.nse" >> $3_vulns_summary 
-cat $3_http-vuln-wnr1000-creds|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
+cat $3_http-vuln-wnr1000-creds|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"  >>  $3_vulns_summary
 
 echo ""
 echo ""
@@ -582,8 +582,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to http-huawei-hg5xx-vuln"
 echo "devices vulnerable to http-huawei-hg5xx-vuln" >> $3_vulns_summary
-cat $3_http-huawei-hg5xx-vuln|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_http-huawei-hg5xx-vuln|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_http-huawei-hg5xx-vuln|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_http-huawei-hg5xx-vuln|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 
 echo ""
 echo ""
@@ -594,8 +594,8 @@ echo    >>  $3_vulns_summary
 
 echo "bellow devices vulnerable to heartbleed"
 echo "devices vulnerable to heartbleed" >> $3_vulns_summary
-cat $3_ssl-heartbleed|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-cat $3_ssl-heartbleed|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+cat $3_ssl-heartbleed|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_ssl-heartbleed|grep -B7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|State: VULNERABLE\|VULNERABLE (Exploitable)\|VULNERABLE:'  |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
 
 echo ""
 echo ""

@@ -46,7 +46,7 @@ echo ""
 
 echo "testing for SHELLSHOCK vulnerabilities"
 echo ""
-nmap -Pn -p $2 --script=http-shellshock -iL target_list -oX $3_http-shellshock    
+nmap -Pn -p $2 --script=http-shellshock -iL target_list -oX $3_http-shellshock --script-args uri=/cgi-bin/admin.cgi    
 echo ""
 echo ""
 echo ""

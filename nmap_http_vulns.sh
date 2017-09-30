@@ -13,9 +13,10 @@
 if [ $# -ne 3 ]; then
 echo ""
 echo ""
-echo "[*] script to first enumerate live hosts and then run all HTTP vuln scripts back to back against then, will produce single soutput file for each named <filename>_ms08-67 etc"
-echo "[*] will also produce an easy to intepret summary file containing a clear list of vulnerabilities named <outpufile name_vulns_summary>"
-echo ""
+echo "[*] script to first enumerate live hosts and then run all HTTP vuln scripts back to back against them"
+echo "[*] will will produce an easy to intepret summary file containing a clear list of vulnerabilities named <outpufile name_vulns_summary>"
+echo ''
+echo " if verbose output from each NSE script is required hash last 3 lines of this file, each will produce an output named <filename>_ms08-67 etc"
 echo ""
 echo "[*] Useage <iprange> <port (multple ports entered either as 80,8080 or 100-200)> <outputfile name>"
 echo ""
@@ -33,7 +34,7 @@ sort -u target_list2 > target_list #removes duplicates and creates new target li
 
 echo "testing for http-iis-webdav-vuln"
 echo ""
-nmap -p $2 --script=http-iis-webdav-vuln -iL target_list -oX $3_http-iis-webdav-vuln|grep 'VULNER\|vulnerable' #search XML output for strings 'VULNER' and 'vulner' if present display line
+nmap -Pn -p $2 --script=http-iis-webdav-vuln -iL target_list -oX $3_http-iis-webdav-vuln|grep 'VULNER\|vulnerable' #search XML output for strings 'VULNER' and 'vulner' if present display line
 echo ""
 echo ""
 echo ""
@@ -210,6 +211,13 @@ echo ""
 echo "testing for http-huawei-hg5xx-vuln"
 echo ""
 nmap -p $2 --script=http-huawei-hg5xx-vuln -iL target_list -oX $3_http-huawei-hg5xx-vuln|grep 'VULNER\|vulnerable' 
+echo ""
+echo ""
+echo ""
+
+echo "testing for heartbleed"
+echo ""
+nmap -p $2 --script=ssl-heartbleed -iL target_list -oX $3_ssl-heartbleed|grep 'VULNER\|vulnerable' 
 echo ""
 echo ""
 echo ""
@@ -553,6 +561,15 @@ echo ""
 echo    >>  $3_vulns_summary
 echo    >>  $3_vulns_summary
 
+echo "bellow devices vulnerable to heartbleed"
+echo "devices vulnerable to heartbleed" >> $3_vulns_summary
+cat $3_ssl-heartbleed|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+cat $3_ssl-heartbleed|grep -B 7 'VULNER\|vulner'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
+
+echo ""
+echo ""
+echo ""
+
 echo ""
 echo ""
 
@@ -569,3 +586,14 @@ echo ""
 rm nmap_output_80_8080 -f
 rm target_list -f
 rm target_list2 -f 
+
+### bellow code is for administration i.e file cleanup
+
+rm nmap_output_80_8080 -f
+rm target_list -f
+rm target_list2 -f
+
+#### hash bellow 3 lines if you want individual output from each NSE script just the vulns_summary file #####
+mv $3_vulns_summary vulns_summary
+rm $3_* -f 
+mv vulns_summary $3_vulns_summary

@@ -35,9 +35,9 @@ echo ""
 echo ""
 
 
-echo "testing for http-iis-webdav-vuln"
+# echo "testing for http-iis-webdav-vuln"
 echo ""
-nmap -Pn -p $2 --script=http-iis-webdav-vuln -iL target_list -oX $3_http-iis-webdav-vuln
+# nmap -Pn -p $2 --script=http-iis-webdav-vuln -iL target_list -oX $3_http-iis-webdav-vuln    #this scan takes a long time
 echo ""
 echo ""
 echo ""
@@ -303,8 +303,8 @@ echo "if vulnerable check for cold fusion MD5 hash retreval (will be in summary 
 echo "devices vulnerable to http-vuln-cve2010-2861" >> $3_vulns_summary
 cat $3_http-vuln-cve2010-2861|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 cat $3_http-vuln-cve2010-2861|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary
-grep -o 'Hash.*#' $3_http-vuln-cve2010-2861 |cut -d '#' -f 1 |sort -u | sed 's/[^a-zA-Z0-9]//g'>> $3_vulns_summary   #pulls out any hashes and pastes them into summary file
-grep -o 'Hash.*#' $3_http-vuln-cve2010-2861 |cut -d '#' -f 1 |sort -u | sed 's/[^a-zA-Z0-9]//g'a
+grep -o 'Hash.*#' $3_http-vuln-cve2010-2861 |cut -d '#' -f 1 |sort -u | cut -d '&' -f 1 >> $3_vulns_summary   #pulls out any hashes and pastes them into summary file
+grep -o 'Hash.*#' $3_http-vuln-cve2010-2861 |cut -d '#' -f 1 |sort -u | cut -d '&' -f 1
 echo "use md5cracker for cracking hash @ https://hashkiller.co.uk/md5-decrypter.aspx" >>  $3_vulns_summary
 
 

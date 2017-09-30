@@ -319,8 +319,8 @@ echo    >>  $3_vulns_summary
 
 
 echo "bellow devices vulnerable to http-vuln-cve2010-2861"
-echo "this script will attempt to retrieve the Coldfusion MD5 hash for admin if successful it is shown bellow (also saved in summary file)"
-echo "default Coldfussion admin interface is http://<ip>/CFIDE/administrator/index.cfm"
+echo "[*] this script will attempt to retrieve the Coldfusion MD5 hash for admin if successful it is shown bellow (also saved in summary file)"
+echo "[*] default Coldfussion admin interface is http://<ip>/CFIDE/administrator/index.cfm"
 echo "devices vulnerable to http-vuln-cve2010-2861" >> $3_vulns_summary
 echo "default Coldfussion admin interface is http://<ip>/CFIDE/administrator/index.cfm" >> $3_vulns_summary
 cat $3_http-vuln-cve2010-2861|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)\|VULNERABLE:'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"

@@ -287,6 +287,7 @@ echo    >>  $3_vulns_summary
 
 
 echo "bellow devices vulnerable to http-vuln-cve2010-0738"
+echo    >>  $3_vulns_summary
 echo "devices vulnerable to http-vuln-cve2010-0738" >> $3_vulns_summary
 cat $3_http-vuln-cve2010-0738|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 cat $3_http-vuln-cve2010-0738|grep -B 7 'IS VULNER\|is vulner\|is VULNER\|HAS VULNER\|has vulner\|has VULNER\|VULNERABLE (Exploitable)'|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>  $3_vulns_summary

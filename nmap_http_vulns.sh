@@ -16,7 +16,7 @@ echo ""
 echo "[*] script to first enumerate live hosts and then run all HTTP vuln scripts back to back against them"
 echo "[*] will will produce an easy to intepret summary file containing a clear list of vulnerabilities named <outpufile name_vulns_summary>"
 echo ''
-echo " if verbose output from each NSE script is required hash last 3 lines of this file, each will produce an output named <filename>_ms08-67 etc"
+echo " if in addition to summary file verbose output from each NSE script is required: hash last 3 lines of this file, each will produce an output named <filename>_ms08-67 etc"
 echo ""
 echo "[*] Useage <iprange> <port (multple ports entered either as 80,8080 or 100-200)> <outputfile name>"
 echo ""

@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/sh
 
 #by Jonesy167, this bash script allows multiple HTTP vulnerability assessment NSE scripts to be run and creates a single summary file to
 #view the output and identify HTTP vulnerabilities easily. Live hosts are first identified by running a standard NMAP scan on the ports
@@ -37,7 +37,7 @@ echo ""
 
 echo "testing for http-iis-webdav-vuln"
 echo ""
-#nmap -Pn -p $2 --script=http-iis-webdav-vuln -iL target_list -oX $3_http-iis-webdav-vuln
+nmap -Pn -p $2 --script=http-iis-webdav-vuln -iL target_list -oX $3_http-iis-webdav-vuln
 echo ""
 echo ""
 echo ""

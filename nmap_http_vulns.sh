@@ -21,6 +21,8 @@ echo ""
 echo "[*] Useage <iprange> <port (multple ports entered either as 80,8080 or 100-200)> <outputfile name>  NO -p for port just value(s)!!!"
 echo ""
 echo ""
+echo "Recommended ports 80,443,8080,8000"
+echo ""
 exit 0
 fi
 

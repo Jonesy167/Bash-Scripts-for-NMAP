@@ -53,7 +53,7 @@ echo ""
 
 echo "testing for http-vmware-path-vuln"
 echo ""
-nmap -Pn -p $2 --script=http-vmware-path -iL target_list -oX $3_http-vmware-path-vuln
+nmap -Pn -p $2 --script=http-vmware-path-vuln -iL target_list -oX $3_http-vmware-path-vuln
 echo ""
 echo ""
 echo ""

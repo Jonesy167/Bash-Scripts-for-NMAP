@@ -18,10 +18,10 @@ echo "[*] will will produce an easy to intepret summary file containing a clear 
 echo ''
 echo "in addition to vulns_summary_file, verbose output from each NSE script will be saved in the folder creaed by this script named 'NSE_scripts_output' "
 echo ""
-echo "[*] Useage <iprange> <port (multple ports entered either as 80,8080 or 100-200)> <outputfile name>  NO -p for port just value(s)!!!"
+echo "[*] Useage <iprange> <port (port options as NMAP e.g 80,8080 or 100-200 or http)> <outputfile name>  NO -p for port just value(s)!!!"
 echo ""
 echo ""
-echo "Recommended ports 80,443,8080,8000"
+echo ""
 echo ""
 exit 0
 fi

@@ -28,7 +28,7 @@ fi
 
 
 # enumerate live hosts using standard NMAP scan and create 'clean file' with live hosts IP's which is used as target list for NSE scripts
-nmap -p $2 $1 -oX nmap_output_80_8080  #identify live hosts and save standard nmap xml output to file  
+nmap -Pn -p $2 $1 -oX nmap_output_80_8080  #identify live hosts and save standard nmap xml output to file  
 grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b' nmap_output_80_8080 > target_list2  # creates file containing only live hosts
 sort -u target_list2 > target_list #removes duplicates and creates new target list which is used as target list for NSE scripts
 

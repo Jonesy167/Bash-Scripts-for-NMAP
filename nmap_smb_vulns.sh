@@ -1,6 +1,7 @@
 #!/bin/sh
 
-#y Jonesy167, this bash script allows multiple SMB vulnerability assessment NSE scripts to be run and creates a single summary file to
+##############by JONESY167 https://github.com/Jonesy167###############################
+#this bash script allows multiple SMB vulnerability assessment NSE scripts to be run and creates a single summary file to
 #view the output and identify SMB vulnerabilities easily. Live hosts are first identified by running a standard NMAP scan on the ports
 # specified at runtime, the NSE scripts will only be ran against the identified live hosts, again on the same ports as are specified on startup.
 
